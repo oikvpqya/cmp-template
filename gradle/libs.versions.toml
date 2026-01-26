@@ -1,0 +1,38 @@
+[versions]
+androidGradlePlugin = "8.10.1"
+androidxActivity = "1.12.2"
+androidxCore = "1.17.0"
+cashLicensee = "1.13.0"
+cashMolecule = "2.2.0"
+cashTurbine = "1.2.1"
+googleKsp = "2.3.4"
+jetbrainsCompose = "1.10.0"
+jetbrainsComposeMaterial3 = "1.9.0"
+kotlin = "2.2.21"
+kotlinxCoroutines = "1.10.2"
+kotlinxSerialization = "1.9.0"
+
+[libraries]
+androidxActivityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
+androidxCoreKtx = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
+cashMolecule = { module = "app.cash.molecule:molecule-runtime", version.ref = "cashMolecule" }
+cashTurbine = { module = "app.cash.turbine:turbine", version.ref = "cashTurbine" }
+jetbrainsComposeFoundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jetbrainsCompose" }
+jetbrainsComposeRuntime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jetbrainsCompose" }
+jetbrainsComposeMaterial3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jetbrainsComposeMaterial3" }
+jetbrainsComposeUiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "jetbrainsCompose" }
+kotlinTest = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinxCoroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinxCoroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+kotlinxSerializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerialization" }
+kotlinxSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+cashLicensee = { id = "app.cash.licensee", version.ref = "cashLicensee" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+googleKsp = { id = "com.google.devtools.ksp", version.ref = "googleKsp" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "jetbrainsCompose" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
