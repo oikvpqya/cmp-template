@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import me.oikvpqya.name.app.application.LocalApplicationGraph
+import me.oikvpqya.runtime.ui.Effect
 import me.oikvpqya.runtime.ui.collectAsState
 import me.oikvpqya.runtime.ui.rememberEventBus
 
@@ -19,14 +20,15 @@ fun MainScreen(
 ) {
     val applicationGraph = LocalApplicationGraph.current
     val eventBus = rememberEventBus<MainUiEvent>()
-    val uiState by remember(applicationGraph, eventBus) {
+    val presenter = remember(applicationGraph, eventBus) {
         MainPresenter(
             mainRepository = applicationGraph.mainRepository,
             eventBus = eventBus,
         )
-    }.collectAsState()
+    }
+    val uiState by presenter.collectAsState()
     Column(
-        modifier = modifier.safeDrawingPadding()
+        modifier = modifier.safeDrawingPadding(),
     ) {
         Text(text = uiState.string)
         Button(
@@ -42,9 +44,11 @@ fun MainScreen(
             )
         }
     }
-    LaunchedEffect(Unit) {
-        eventBus.produceEvent(
-            event = MainUiEvent.Refresh,
-        )
+    presenter.Effect { effect ->
+        when (effect) {
+            MainUiEffect.Loaded -> {
+                println("Item was loaded.")
+            }
+        }
     }
 }

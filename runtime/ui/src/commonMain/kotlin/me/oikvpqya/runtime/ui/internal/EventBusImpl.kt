@@ -9,9 +9,7 @@ import me.oikvpqya.runtime.ui.EventBus
 internal class EventBusImpl<EVENT> : EventBus<EVENT> {
 
     private val mutableEventFlow = MutableSharedFlow<EVENT>(
-        replay = 0,
         extraBufferCapacity = 20,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST,
     )
 
     override val events: SharedFlow<EVENT>

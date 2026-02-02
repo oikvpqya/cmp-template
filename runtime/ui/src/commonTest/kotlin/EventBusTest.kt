@@ -11,7 +11,7 @@ class EventBusTest {
         val eventBus = buildEventBus<TestEvent>()
         eventBus.events.test {
             eventBus.produceEvent(TestEvent.Load)
-            assertEquals(TestEvent.Load, awaitItem())
+            assertEquals(awaitItem(), TestEvent.Load)
             ensureAllEventsConsumed()
         }
     }
